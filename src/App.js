@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import TimeButtons from './TimeButtons';
 import Timer from './Timer';
 import Ads from './Ads';
+import Footer from './Footer';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Timer />
       <ControlButtons />
       <Ads />
+      <Footer />
     </main>
   )
 }

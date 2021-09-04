@@ -115,3 +115,9 @@ export const AdContainer = styled.div`
     }
   }
 `;
+
+export const FooterContainer = styled.footer`
+  background-color: red;
+  height: 300px;
+  margin-top: 100px;
+`;
