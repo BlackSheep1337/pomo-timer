@@ -2,7 +2,6 @@ import React from 'react';
 import { FooterContainer } from './styles';
 import { FaLinkedin } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
-import { AiOutlineMail } from 'react-icons/ai';
 
 export default function Footer() {
   return (
