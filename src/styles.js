@@ -117,7 +117,21 @@ export const AdContainer = styled.div`
 `;
 
 export const FooterContainer = styled.footer`
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.5);
   height: 300px;
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  font-size: 20px;
+  a {
+    margin-top: 20px;
+    span {
+      margin-left: 20px;
+    }
+  }
+  p {
+    margin-top: 100px;
+    text-align: center;
+  }
 `;
