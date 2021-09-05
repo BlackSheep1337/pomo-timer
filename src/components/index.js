@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import ControlButtons from './ControlButtons';
 import Timer from './Timer';
 import Footer from './Footer';
+import TimeButtons from './TimeButtons';
 
 export {
   Ads,
@@ -10,4 +11,5 @@ export {
   ControlButtons,
   Timer,
   Footer,
+  TimeButtons,
 }

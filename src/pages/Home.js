@@ -4,13 +4,15 @@ import {
   Navbar,
   ControlButtons,
   Timer,
-  Footer
+  Footer,
+  TimeButtons
 } from '../components';
 
 export default function Home() {
   return (
     <main>
       <Navbar />
+      <TimeButtons />
       <Timer />
       <ControlButtons />
       <Ads />
