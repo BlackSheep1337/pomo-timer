@@ -4,7 +4,7 @@ import { Nav } from './styles';
 export default function Navbar() {
   return (
     <Nav>
-      <h1>Promo-Timer</h1>
+      <h1>Pomo-Timer</h1>
       <div className="nav-menu">
         <button>
           Log
