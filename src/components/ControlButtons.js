@@ -1,16 +1,18 @@
 import React from 'react';
 import { TimerControlContainer } from './styles';
+import { useGlobalContext } from '../contextAPP/context';
 
 export default function ControlButtons() {
+  const { handlePomodoro, handleStart, handleStop } = useGlobalContext()
   return (
     <TimerControlContainer>
-      <button className="green">
+      <button onClick={ handleStart } className="green">
         Start
       </button>
-      <button className="red">
+      <button onClick={ handleStop } className="red">
         Stop
       </button>
-      <button className="gray">
+      <button onClick={ handlePomodoro } className="gray">
         Reset
       </button>
     </TimerControlContainer>

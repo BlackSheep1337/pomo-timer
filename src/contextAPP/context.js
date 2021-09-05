@@ -9,7 +9,8 @@ const INITIAL_STATE = {
 }
 
 const AppProvider = ({ children }) => {
-  const [STATE, setSTATE] = useState(INITIAL_STATE)
+  const [STATE, setSTATE] = useState(INITIAL_STATE);
+  const [timerControl, setTimerControl] = useState(false);
   
   useEffect(() => {
     const { minutes, seconds } = STATE;
@@ -26,25 +27,31 @@ const AppProvider = ({ children }) => {
     if (minutes === 0 && seconds === 0) {
       clearInterval(timeout);
     }
+    if (timerControl) {
+      clearInterval(timeout);
+    }
     return () => clearInterval(timeout);
-  }, [STATE]);
+  }, [STATE, timerControl]);
 
-  const handlePomodoro = (e) => {
-    e.preventDefault();
+  const handlePomodoro = () => {
     setSTATE({ minutes: 25, seconds: 0 });
   }
 
-  const handleShortBreak = (e) => {
-    e.preventDefault();
+  const handleShortBreak = () => {
     setSTATE({ minutes: 5, seconds: 0 });
   }
 
-  const handleLongBreak = (e) => {
-    e.preventDefault();
+  const handleLongBreak = () => {
     setSTATE({ minutes: 10, seconds: 0 });
   }
 
+  const handleStart = () => { 
+    setTimerControl(false);
+  }
 
+  const handleStop = () => { 
+    setTimerControl(true);
+  }
 
   return <AppContext.Provider value={{
     STATE,
@@ -52,6 +59,8 @@ const AppProvider = ({ children }) => {
     handlePomodoro,
     handleShortBreak,
     handleLongBreak,
+    handleStart,
+    handleStop,
   }}>
     { children }
   </AppContext.Provider>
