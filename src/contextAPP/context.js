@@ -13,7 +13,7 @@ const INITIAL_STATE = {
 const AppProvider = ({ children }) => {
   const [STATE, setSTATE] = useState(INITIAL_STATE);
   const [timerControl, setTimerControl] = useState(true);
-  const [play, { stop }] = useSound(Audio);
+  const [play, { stop }] = useSound(Audio,  { volume: 0.5 });
   
   useEffect(() => {
     const { minutes, seconds } = STATE;
@@ -23,14 +23,12 @@ const AppProvider = ({ children }) => {
         return {
           ...prevState,
           minutes: seconds === 0 ? minutes - 1 : minutes,
-          seconds: seconds === 0 ? 9 : seconds - 1,
+          seconds: seconds === 0 ? 59 : seconds - 1,
         }
       })
     }, ONE_SECOND);
     if (minutes === 0 && seconds === 0) {
       clearInterval(timeout);
-      play();
-      setInterval(() => stop(), 3000);
     }
     if (timerControl) {
       clearInterval(timeout);
@@ -39,7 +37,19 @@ const AppProvider = ({ children }) => {
     :
     ${seconds < 10 ? `0${ seconds }` : seconds } | Promo-Timer`;
     return () => clearInterval(timeout);
-  }, [STATE, timerControl, play, stop]);
+  }, [STATE, timerControl]);
+
+  useEffect(() => {
+    if (STATE.minutes === 0 && STATE.seconds === 0) {
+      const SIX_SECONDS = 6000;
+      document.title = 'Buzzzzzzz!!!!';
+      play();
+      let timeout = setInterval(() => {
+        stop();
+      }, SIX_SECONDS);
+      return () => clearInterval(timeout);
+    }
+  }, [STATE, play, stop]);
 
   const handlePomodoro = () => {
     setSTATE({ minutes: 25, seconds: 0 });
