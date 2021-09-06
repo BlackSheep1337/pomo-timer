@@ -3,7 +3,7 @@ import { TimerControlContainer } from './styles';
 import { useGlobalContext } from '../contextAPP/context';
 
 export default function ControlButtons() {
-  const { handlePomodoro, handleStart, handleStop } = useGlobalContext()
+  const { handleReset, handleStart, handleStop } = useGlobalContext()
   return (
     <TimerControlContainer>
       <button onClick={ handleStart } className="green">
@@ -12,7 +12,7 @@ export default function ControlButtons() {
       <button onClick={ handleStop } className="red">
         Stop
       </button>
-      <button onClick={ handlePomodoro } className="gray">
+      <button onClick={ handleReset } className="gray">
         Reset
       </button>
     </TimerControlContainer>

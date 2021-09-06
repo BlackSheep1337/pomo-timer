@@ -39,7 +39,7 @@ export const Nav = styled.nav`
 `;
 
 export const ButtonsContainer = styled.div`
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,14 +64,13 @@ export const ButtonsContainer = styled.div`
 
 export const TimerContainer = styled.div`
   text-align: center;
-  margin-top: 100px;
+  margin-top: 50px;
   font-size: 60px;
 `;
 
 export const TimerControlContainer = styled.div`
   text-align: center;
-  margin-top: 100px;
-
+  margin-top: 50px;
   button {
       font-size: 15px;
       font-weight: 700;
@@ -100,9 +99,10 @@ export const TimerControlContainer = styled.div`
 `;
 
 export const AdContainer = styled.div`
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   justify-content: space-around;
+  margin-right: 100px;
   div {
     border: 2px solid black;
     width: 300px;
@@ -119,6 +119,9 @@ export const AdContainer = styled.div`
     width: 100%;
     height: 120%;
   }
+  .tecnica {
+     width: 150%;  
+    }
 `;
 
 export const FooterContainer = styled.footer`

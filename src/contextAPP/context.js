@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 
 const AppProvider = ({ children }) => {
   const [STATE, setSTATE] = useState(INITIAL_STATE);
-  const [timerControl, setTimerControl] = useState(false);
+  const [timerControl, setTimerControl] = useState(true);
   
   useEffect(() => {
     const { minutes, seconds } = STATE;
@@ -30,6 +30,9 @@ const AppProvider = ({ children }) => {
     if (timerControl) {
       clearInterval(timeout);
     }
+    document.title= `${minutes < 10 ? `0${ minutes }` : minutes}
+    :
+    ${seconds < 10 ? `0${ seconds }` : seconds } | Promo-Timer`;
     return () => clearInterval(timeout);
   }, [STATE, timerControl]);
 
@@ -53,6 +56,10 @@ const AppProvider = ({ children }) => {
     setTimerControl(true);
   }
 
+  const handleReset= () => { 
+    setSTATE({ minutes: 25, seconds: 0 });
+  }
+
   return <AppContext.Provider value={{
     STATE,
     setSTATE,
@@ -61,6 +68,7 @@ const AppProvider = ({ children }) => {
     handleLongBreak,
     handleStart,
     handleStop,
+    handleReset,
   }}>
     { children }
   </AppContext.Provider>

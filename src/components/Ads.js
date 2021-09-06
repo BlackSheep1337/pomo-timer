@@ -14,7 +14,7 @@ export default function Ads() {
         <img src={ PomodoroWeb } alt="pomodoro web" />
       </div>
       <div>
-        <img src={ TecnicaPomo } alt="tecnica" />
+        <img className="tecnica" src={ TecnicaPomo } alt="tecnica" />
       </div>
     </AdContainer>
   )
