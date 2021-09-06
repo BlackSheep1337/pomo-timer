@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import Audio from '../assets/images/app_songs_alarm.mp3';
+import useSound from 'use-sound';
 
 const AppContext = createContext();
 
@@ -11,6 +13,7 @@ const INITIAL_STATE = {
 const AppProvider = ({ children }) => {
   const [STATE, setSTATE] = useState(INITIAL_STATE);
   const [timerControl, setTimerControl] = useState(true);
+  const [play, { stop }] = useSound(Audio);
   
   useEffect(() => {
     const { minutes, seconds } = STATE;
@@ -26,6 +29,8 @@ const AppProvider = ({ children }) => {
     }, ONE_SECOND);
     if (minutes === 0 && seconds === 0) {
       clearInterval(timeout);
+      play();
+      setInterval(() => stop(), 3000);
     }
     if (timerControl) {
       clearInterval(timeout);
@@ -34,7 +39,7 @@ const AppProvider = ({ children }) => {
     :
     ${seconds < 10 ? `0${ seconds }` : seconds } | Promo-Timer`;
     return () => clearInterval(timeout);
-  }, [STATE, timerControl]);
+  }, [STATE, timerControl, play, stop]);
 
   const handlePomodoro = () => {
     setSTATE({ minutes: 25, seconds: 0 });
