@@ -25,7 +25,7 @@ export const Nav = styled.nav`
       font-size: 15px;
       font-weight: 700;
       width: 100%;
-      background-color: gray;
+      background-color: whitesmoke;
       border: none;
       border-radius: 2px;
       transition: 0.5s;
