@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-  background-color: rgba(0, 0, 0, 0.5 lightblue);
+  background-color: lightblue;
   min-height: 200px;
   display: flex;
   justify-content: space-around;
@@ -125,7 +125,7 @@ export const AdContainer = styled.div`
 `;
 
 export const FooterContainer = styled.footer`
-  background-color: rgba(0, 0, 0, 0.5 lightcoral);
+  background-color: lightblue;
   height: 300px;
   margin-top: 100px;
   display: flex;
